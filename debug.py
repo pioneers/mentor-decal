@@ -25,21 +25,25 @@ def move_arm();
 def teleop_main():
     if gamepad.get_value("r_trigger") > 0.5:
         while True:
+            # move forward
             Robot.get_value(left_motor, "duty_cycle", -1.0)
             Robot.get_value(right_motor, "duty_cycle", -1.0)
     else if gamepad.get_value("l_trigger") > 0.5:
         while True:
+            # move backward
             Robot.get_value(left_motor, "duty_cycle", 1.0)
             Robot.get_value(right_motor, "duty_cycle", 1.0)
     else if 1.0 > gamepad.get_value("joystick_left_y") > 0.75
         while True:
-           Robot.get_value(left_motor, "duty_cycle", 1.0)
-           Robot.get_value(right_motor, "duty_cycle", -1.0)
-           time.sleep(1)
+            # turn right
+            Robot.get_value(left_motor, "duty_cycle", 1.0)
+            Robot.get_value(right_motor, "duty_cycle", -1.0)
+            time.sleep(1)
     else if 1.0 > gamepad.get_value("joystick_right_y") > 0.75)
         while True:
-           Robot.get_value(left_motor, "duty_cycle", -1.0)
-           Robot.get_value(right_motor, "duty_cycle", 1.0)
-           time.sleep(1)
+            # turn left
+            Robot.get_value(left_motor, "duty_cycle", -1.0)
+            Robot.get_value(right_motor, "duty_cycle", 1.0)
+            time.sleep(1)
     if gamepad.get_vlue("button_a") == 1:
         move_arm()
